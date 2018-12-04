@@ -1,0 +1,38 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+    <ng-container *ngFor="let lugar of lugares | sort:'-activo'">
+        <agm-marker *ngIf="lugar.activo=='si'" [latitude]="lugar.lat" [longitude]="lugar.lng">
+            <agm-info-window>{{lugar.nombre}}- {{lugar.calle}}</agm-info-window>
+        </agm-marker>
+    </ng-container>
+    <agm-marker *ngIf="miPosicion==true" [iconUrl]="'/assets/Simple_icon_location.svg'" [latitude]="latitude" [longitude]="longitude">
+        <agm-info-window>Mi ubicacion</agm-info-window>
+    </agm-marker>
+
+</agm-map>
+<div id="cuadrado" [@contenedorAnimable]="state" (click)="animar()" (@contenedorAnimable.done)="animationFin($event)" (@contenedorAnimable.start)="animationInicial($event)"></div>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Lugares Cercanos</h2>
+
+            <a class="btn btn-primary" routerLink="/crear/new">Crear Nuevo Negocio</a>
+            <br/>
+            <ul class="list-group">
+                <ng-container *ngFor="let lugar of lugares | sort:'-activo'">
+                    <li class="list-group-item" [ngStyle]="{color: (lugar.activo=='si') ? 'black' : 'red'}">
+                        <a routerLink="/crear/{{lugar.id}}">
+                            <h4>{{lugar.nombre}}</h4>
+                        </a>
+                        <small>{{lugar.calle | uppercase }}, {{lugar.ciudad | uppercase}}</small>
+                        <br/>
+                        <a href="mailto:{{lugar.mailContacto}}">{{lugar.contacto}}</a>
+                        <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+
+    </div>
+</div>
