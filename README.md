@@ -7,7 +7,9 @@ Este proyecto esta trabajado con angular actual pero pensado en angular 4[Angula
 Una vez descargado el proyecto iniciar el comando `npm install` para descargar los elementosusados.
 
  instalar  @angular/fire  `npm i @angular/fire --save`
+ 
  instalar Angular Google Maps (AGM)  `npm install -g @angular/cli --save`
+ 
  instalar linkifyjs `npm i linkifyjs`
 
 ## Conectarse a firebase.
