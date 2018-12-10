@@ -25,13 +25,15 @@ import {CrearComponent} from "./crear/crear.component";
 import {HttpModule} from "@angular/http";
 import {LinkifystrPipe} from "./pipes/linkifystr.pipe";
 import {ArraySortPipe} from "./pipes/sort.pipe";
+import { AutorizacionService } from './services/autorizacion.service';
+import { MyGuard } from './services/my-guard.service';
 const appRoutes: Routes = [
-  {path:'', component: LugaresComponent},
+  {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
-  {path:'lugares', component: LugaresComponent},
-  {path:'detalle/:id', component: DetalleComponent},
-  {path:'contacto', component: ContactoComponent},
-  {path:'crear/:id', component: CrearComponent},
+  {path:'lugares', component: LugaresComponent, canActivate:[MyGuard]},
+  {path:'detalle/:id', component: DetalleComponent, canActivate:[MyGuard]},
+  {path:'contacto', component: ContactoComponent, canActivate:[MyGuard]},
+  {path:'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
 ];
 export const environment = {
   production: false,
@@ -73,7 +75,9 @@ export const environment = {
     AngularFireDatabaseModule,
       HttpModule
   ],
-  providers: [LugaresService],
+  providers: [LugaresService,
+            AutorizacionService,
+            MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

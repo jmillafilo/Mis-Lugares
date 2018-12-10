@@ -32,6 +32,7 @@ export class LugaresComponent {
     longitude: number = 0;
     lugares = null;
     constructor(private lugaresService: LugaresService){
+        debugger;
         lugaresService.getLugares()
             .subscribe(lugares =>{
                 this.lugares = lugares;
@@ -39,7 +40,6 @@ export class LugaresComponent {
                 me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
             }, error => {
                 console.log(error);
-                alert('Tenemos algo de dificultades, disculpe las molestias. Error: ' + error.statusText);
             });
              setTimeout(this.getPosition(), 1000);
     }

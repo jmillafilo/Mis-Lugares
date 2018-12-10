@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import {LugaresService} from "../services/lugares.service";
 import {ActivatedRoute} from "@angular/router";
-
+import { fromEvent, Observable } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Http } from '@angular/http';
 @Component({
     selector: 'app-crear',
     templateUrl: './crear.component.html'
@@ -9,7 +13,9 @@ import {ActivatedRoute} from "@angular/router";
 export class CrearComponent {
     lugar:any = {};
     id:any = null;
-    constructor(private lugaresService: LugaresService, private route: ActivatedRoute){
+    results$ : Observable<any>;
+    private buscar: FormControl ;
+    constructor(private lugaresService: LugaresService, private route: ActivatedRoute, private http: Http){
         this.id = this.route.snapshot.params['id'];
         if(this.id != 'new'){
             this.lugaresService.getLugar(this.id)
@@ -17,6 +23,14 @@ export class CrearComponent {
                     this.lugar = lugar;
                 });
         }
+        const URL = "";
+
+        this.buscar = new FormControl();
+        this.results$ = this.buscar.valueChanges
+      //  .switchMap(query =>this.http.get(`${URL}?address=${query}`))
+        //.map(response=> response.json())
+        //.map(response=> response.results);
+
     }
     guardarLugar(){
         var direccion = this.lugar.calle+','+this.lugar.ciudad+',chile';

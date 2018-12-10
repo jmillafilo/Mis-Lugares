@@ -1,6 +1,5 @@
 <div id="LoginForm">
     <div class="container">
-        <h1 class="form-heading">login Form</h1>
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
@@ -9,14 +8,17 @@
                 </div>
                 <div id="Login">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                        <input type="email" [(ngModel)]="registro.email" class=" form-control " id="inputEmail " placeholder="Email Address ">
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <div class="form-group ">
+                        <input type="password" [(ngModel)]="registro.password" class="form-control " id="inputPassword " placeholder="Password ">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit " (click)="login()" class="btn btn-success ">Login</button>
+                    <p></p>
+                    <button type="submit " (click)="facebookLogin()" class="btn btn-facebook ">Login Facebook</button>
                 </div>
+
             </div>
         </div>
     </div>
