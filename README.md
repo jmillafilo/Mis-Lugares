@@ -1,20 +1,27 @@
-# Mis-Lugares
+# My-App
 
-Este proyecto esta trabajado con angular actual pero pensado en angular 4[Angular CLI](https://github.com/angular/angular-cli)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
-## Duplicar proyecto
+## Development server
 
-Una vez descargado el proyecto iniciar el comando `npm install` para descargar los elementosusados.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
- instalar  @angular/fire  `npm i @angular/fire --save`
- 
- instalar Angular Google Maps (AGM)  `npm install -g @angular/cli --save`
- 
- instalar linkifyjs `npm i linkifyjs --save`
+## Code scaffolding
 
-## Conectarse a firebase.
-Creamos un proyecto en firebase y copiamos los datos de Añade Firebase a tu aplicación web en el archivo `\src\app\app.module.ts` y remplazamos los valores que estan dentro del `modulo export const environment`
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Conectarse a AGM.
+## Build
 
-seguimos las instrucciones existente en [Google Maps Platform](https://developers.google.com/maps/documentation/javascript/get-api-key) y pegamos la key generada en la linea 65 apiKey en el archivo `\src\app\app.module.ts
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
