@@ -1,4 +1,4 @@
-# My-App
+# Mis-Lugares
 
 Este proyecto esta trabajado con angular actual pero pensado en angular 4[Angular CLI](https://github.com/angular/angular-cli)
 
